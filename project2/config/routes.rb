@@ -1,56 +1,39 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+root to: "client#index"
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  ### CLIENTS ###
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  get "/clients", to: "clients#index", as: "home"
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  get "/clients/new", to: "clients#new", as: "new_client"
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  post "/clients", to: "clients#create"
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+  get "/clients/:id", to: "clients#show", as: 'client_path'
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+  get "/clients/:id/edit", to: "clients#edit", as: "edit_client"
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  put "/clients/:id", to: "clients#udpate"
+
+  delete "/clients/:id", to: "clients#destroy"
+
+
+  ### PERFORMERS ###
+
+  get "/performers", to: "performers#index"
+
+  get "/performers/new", to: "performers#new", as: "new_performer"
+
+  post "/performers", to: "performers#create"
+
+  get "/performers/:id", to: "performers#show", as: 'performer_path'
+
+  get "/performers/:id/edit", to: "performers#edit", as: "edit_performer"
+
+  put "/performers/:id", to: "performers#udpate"
+
+  delete "/performers/:id", to: "performers#destroy"
+
 end
