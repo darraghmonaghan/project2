@@ -4,7 +4,8 @@ class Performer < ActiveRecord::Base
 
 	### I suggest we consider changing Performer model - to just include Performer / Group Name ###
 	validates :performer_name, :email, :password_digest, :city, :hourly_rate, :description, presence: true
-	validates_uniqueness_of :email
+	# performers must have unique names and email addresses
+	validates_uniqueness_of :performer_name, :email
 	validates :password, length: {minimum: 1}
 	validates :description, length: {maximum: 500}
 	# validates :email, :instagram, uniqueness: true 
