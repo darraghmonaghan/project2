@@ -3,7 +3,7 @@ class Performer < ActiveRecord::Base
 	has_secure_password
 
 	### I suggest we consider changing Performer model - to just include Performer / Group Name ###
-	validates :city, :rate, :description, presence: true
+	validates :city, :hourly_rate, :description, presence: true
 	validates :email, :instagram, uniqueness: true 
 
 	belongs_to :category
