@@ -9,8 +9,8 @@ def index
 	end
 
 	def create
-		client_params = params.require(:client).permit(:firstname, :lastname, :email, :password)
 		@client = Client.create(client_params)
+		redirect_to "/clients/#{@client.id}"
 	end
 
 	def show
@@ -36,10 +36,12 @@ def index
       		end
   	end
 
-
 	def destroy
 	end
 
-
+	private
+	def client_params
+		params.require(:client).permit(:firstname, :lastname, :email, :password)
+	end
 	
 end
