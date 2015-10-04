@@ -1,0 +1,14 @@
+<div id="main-container" class="container">
+  <div class="row">
+    <div id="sidebar" class="col-xs-3">
+      <!-- sidebar content -->
+    </div>
+    <div id="content" class="col-xs-9">
+<h1>Welcome, <%= @client.firstname %></h1>
+<p>Member since: <%= @client.created_at %></p>
+<p>Your favorites: <%= @client.favorites %></p>
+
+<%= link_to "Edit", edit_client_path %>
+</div>
+</div>
+</div>
