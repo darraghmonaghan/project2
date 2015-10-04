@@ -40,7 +40,7 @@ def index
 
 	private
 	def performer_params
-		params.require(:performer).permit(:performer_name, :email, :password, :city, :category_id, :performer_subcategory, :hourly_rate, :description, :instagram, :youtube)
+		params.require(:performer).permit(:performer_name, :email, :password, :city, :category_id, :performer_subcategory, :hourly_rate, :description)
 	end
 
 
