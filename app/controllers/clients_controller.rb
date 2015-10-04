@@ -1,9 +1,8 @@
 class ClientsController < ApplicationController
 
-
 def index
 		@clients = Client.all
-    # render :index
+    render :index
 	end
 
 def show

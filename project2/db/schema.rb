@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004033130) do
+ActiveRecord::Schema.define(version: 20151003164754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,16 +21,14 @@ ActiveRecord::Schema.define(version: 20151004033130) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-####clients can now have favorites, password to password_digest
+
   create_table "clients", force: :cascade do |t|
     t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "password_digest"
-    t.string   "favorites"
   end
 
   create_table "clients_performers", force: :cascade do |t|
@@ -42,13 +40,13 @@ ActiveRecord::Schema.define(version: 20151004033130) do
   end
 
   create_table "performers", force: :cascade do |t|
+    t.string   "performer_name"
+    t.string   "email"
+    t.string   "password_digest"
     t.string   "city"
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "group"
     t.integer  "category_id"
-    t.string   "rate"
     t.string   "performer_subcategory"
+    t.string   "hourly_rate"
     t.string   "description"
     t.string   "instagram"
     t.string   "youtube"

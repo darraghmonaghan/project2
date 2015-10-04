@@ -3,20 +3,20 @@
     <div id="sidebar" class="col-xs-3">
       <!-- sidebar content -->
     </div>
-    <div id="content" class="col-xs-9">
-<%= form_for @client do |f| %> 
- <p>
-   <%= f.text_field :email, placeholder: 'Email' %></br>
-   <%= f.text_field :firstname, placeholder: 'First Name' %></br>
-    <%= f.text_field :lastname, placeholder: 'Last Name' %>
-  
-    <br />
-   <%= f.password_field :password, placeholder: 'Password' %></br>
+      <div id="content" class="col-xs-9">
+        <%= form_for @client do |f| %> 
+          <p>
+            <%= f.text_field :email, placeholder: 'Email' %></br>
+            <%= f.text_field :firstname, placeholder: 'First Name' %></br>
+            <%= f.text_field :lastname, placeholder: 'Last Name' %>
+            
+              <br />
+            <%= f.password_field :password, placeholder: 'Password' %></br>
    
-   <%= f.submit "Signup!" %>
- </p>
+            <%= f.submit "Signup!" %>
+          </p>
  
-<% end %>
-</div>
-</div>
+          <% end %>
+        </div>
+    </div>
 </div> 
