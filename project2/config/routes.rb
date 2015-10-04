@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-root to: "client#index"
+  # Categories
+  get 'categories/index'
+
+  get 'categories/show'
+
+root to: "clients#index"
 
 
   ### CLIENTS ###
