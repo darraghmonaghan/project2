@@ -1,0 +1,13 @@
+<h1>Performer Log In</h1>
+
+<%= form_for @performer, url: "/performer_sessions", method: "post" do |f| %>
+	<div>
+		<%= f.text_field :email, placeholder: "Email", required: true %>
+	</div>
+	<div>
+		<%= f.password_field :password, placeholder: "Password", required: true %>
+	</div>
+	<div>
+		<%= f.submit "Log In" %>
+	</div>
+<% end %>
