@@ -1,4 +1,7 @@
-<h1>Edit User</h1>
+<h1>Edit Client</h1>
+<%= form_for @client, url: update_client_path, method: :patch do |f| %>
+ <p>First Name: <%= f.text_field :firstname %></p>
+ <p>Last Name: <%= f.text_field :lastname %></p>
+ <%= f.submit "edit" %>
+<% end %>
 
-
-  <h1><%= @client.firstname %></h1>

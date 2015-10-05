@@ -8,7 +8,6 @@ def index
 def show
   id = params[:id]
   @client = Client.find(params[:id])
-
   render :show
   end
 
@@ -26,30 +25,34 @@ def show
 
 
 
-  def edit #has views
+  def edit
     @client = Client.find(params[:id])
-    puts 'Client is present:' + @client.firstname
-      #id = params[:id]
-      #@client = Client.find(id)
-      # render :edit
-      
-  end
+    render :edit
+    end
 
   def update
-    client_id = params[:id]
+      client_id = params[:id]
       client = Client.find(client_id)
       # get updated data
       updated_attributes = params.require(:client).permit(:firstname, :lastname)
       # update the client
       client.update_attributes(updated_attributes)
+      client.save(validate: false)
       #redirect to show
       redirect_to "/clients/#{client.id}"  # <-- go to show
+    end
+
+ def destroy
   end
 
   
 end
+private
+
+  def client_params
+    params.require(:client).permit(:firstname, :lastname, :email, :password)
+  end
   
 
 
-  def destroy
-  end
+ 
