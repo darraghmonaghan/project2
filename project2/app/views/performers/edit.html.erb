@@ -1,5 +1,6 @@
-<h1>Ready to get out there and make some $$$?</h1>
-<h2>Sign up now!</h2>
+<h1>Edit Performer Profile</h1>
+
+
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non posuere nisi. Vivamus ut ipsum dolor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce tortor odio, mattis in nunc non, ornare varius enim. Aenean ultricies ante suscipit eros scelerisque, nec rhoncus sem tempor.</p>
 
 <%= form_for @performer do |f| %>
@@ -27,9 +28,6 @@
 	</div>
 	<div>
 		<%= f.text_area :description, placeholder: "Describe your act for us! Max 500 characters.", required: true, cols: 50, rows: 6 %>
-	</div>
-	<div>
-		<%= f.file_field :avatar, class: "form-control title_input_field2" %>
 	</div>
 	<div>
 		<%= f.submit "Sign Up" %>
