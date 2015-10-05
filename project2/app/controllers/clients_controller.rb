@@ -27,24 +27,26 @@ def show
 
 
   def edit #has views
-    id = params[:id]
-      @client = Client.find(id)
-      render :edit
+    @client = Client.find(params[:id])
+    puts 'Client is present:' + @client.firstname
+      #id = params[:id]
+      #@client = Client.find(id)
+      # render :edit
       
   end
 
   def update
-    @client = Client.find(params[:id])
-  if @client.update(client_params)
-    redirect_to("/clients/#{@client.id}" )
-  else 
-    render :edit
-    end
+    client_id = params[:id]
+      client = Client.find(client_id)
+      # get updated data
+      updated_attributes = params.require(:client).permit(:firstname, :lastname)
+      # update the client
+      client.update_attributes(updated_attributes)
+      #redirect to show
+      redirect_to "/clients/#{client.id}"  # <-- go to show
   end
 
-  def client_params
-      params.require(:client).permit(:firstname, :lastname)
-    end
+  
 end
   
 
