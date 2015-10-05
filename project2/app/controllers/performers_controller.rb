@@ -1,7 +1,9 @@
 class PerformersController < ApplicationController
 
 def index
-		@performer = Performer.all
+		@performers = Performer.all
+		# @performer = Performer.find_by_id(params[:id])
+		# @category = Category.find_by_id(@performer.category)
 	end
 
 	def new
@@ -14,7 +16,8 @@ def index
 	end
 
 	def show
-		@performer = Performer.find(params[:id])
+		@performer = Performer.find_by_id(params[:id])
+		@category = Category.find_by_id(@performer.category)
 	end
 
 	def edit

@@ -5,8 +5,7 @@ Rails.application.routes.draw do
 
   get 'categories/show'
 
-root to: "clients#index"
-
+  root to: "clients#index"
 
   ### CLIENTS ###
 
