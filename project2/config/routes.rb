@@ -15,17 +15,21 @@ Rails.application.routes.draw do
 
   ### CLIENTS ###
 
+
   get "/clients", to: "clients#index", as: "home"
 
   get "/clients/new", to: "clients#new", as: "new_client"
 
   post "/clients", to: "clients#create"
 
-  get "/clients/:id", to: "clients#show", as: 'client_path'
-
   get "/clients/:id/edit", to: "clients#edit", as: "edit_client"
 
-  patch "/clients/:id", to: "clients#update", as: "update_client"
+  get "/clients/:id", to: "clients#show", as: "client_path"
+
+## UPDATE ROUTE 
+  # put "/clients/:id", to: "clients#update"
+
+  patch "/clients/:id", to: "clients#update", as:"update_client"
 
   delete "/clients/:id", to: "clients#destroy"
 
