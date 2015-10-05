@@ -5,6 +5,7 @@ class CreateClients < ActiveRecord::Migration
       t.string :lastname
       t.string :email
       t.string :password_digest
+      t.string :favorites
 
       t.timestamps null: false
     end
