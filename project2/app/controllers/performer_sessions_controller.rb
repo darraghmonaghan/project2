@@ -8,7 +8,7 @@ class PerformerSessionsController < ApplicationController
   	@performer = Performer.confirm(params[:performer])
   	if @performer
   		login(@performer)
-  		redirect_to "/performers/#{@performer.id}"
+      redirect_to performer_path(@performer)
   	else
   		redirect_to performer_sessions_new_path
   	end

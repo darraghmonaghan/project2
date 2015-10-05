@@ -21,4 +21,6 @@
 	<strong>Description:</strong> <%= @performer.description %>
 </div>
 
-<%= link_to "Log Out", "/performer_sessions", method: :delete %>
+<%= link_to "Log Out", "/performer_sessions", method: :delete %><br>
+
+<%= link_to "Edit Profile", edit_performer_path, method: :get %>
