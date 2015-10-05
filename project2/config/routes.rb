@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get '/performer_sessions/new', to: "performer_sessions#new", as: "performer_login"
+
+  post '/performer_sessions', to: "performer_sessions#create"
+
+  delete '/performer_sessions', to: "performer_sessions#destroy"
+
   # Categories
   get 'categories/index'
 
