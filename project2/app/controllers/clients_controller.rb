@@ -1,45 +1,53 @@
 class ClientsController < ApplicationController
 
 def index
-		@client = Client.all
-	end
+    @clients = Client.all
+    render :index
+  end
 
-	def new
-		@client = Client.new
-	end
+def show
+  id = params[:id]
+  @client = Client.find(params[:id])
 
-	def create
-		client_params = params.require(:client).permit(:firstname, :lastname, :email, :password)
-		@client = Client.create(client_params)
-	end
+  render :show
+  end
 
-	def show
-		@client = Client.find(params[:id])
-	end
+  def new
+    @client = Client.new
+    render :new
+  end
 
-	def edit
-		@client = Client.friendly.find(params[:id])
-    		if @client.id == current_user.id
-        		render :edit
-    		else
-        		redirect_to root_path
-    		end
-  	end
-
-	def update
-		client_params = params.require(:client).permit(:firstname, :lastname, :email, :password)
-    	@client = Client.find(params[:id])    
-      		if @client.update(client_params)
-         		redirect_to client_path(@client)
-      		else
-        		render :edit
-      		end
-  	end
+  def create
+    client_params = params.require(:client).permit(:firstname, :lastname, :email, :password)
+    
+    @client = Client.create(client_params)
+    redirect_to("/clients/#{@client.id}" )
+  end
 
 
-	def destroy
-	end
 
+  def edit #has views
+    id = params[:id]
+      @client = Client.find(id)
+      render :edit
+      
+  end
 
-	
+  def update
+    @client = Client.find(params[:id])
+  if @client.update(client_params)
+    redirect_to("/clients/#{@client.id}" )
+  else 
+    render :edit
+    end
+  end
+
+  def client_params
+      params.require(:client).permit(:firstname, :lastname)
+    end
 end
+  
+
+
+  def destroy
+  end
