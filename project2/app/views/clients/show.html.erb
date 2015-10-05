@@ -9,7 +9,8 @@
       <p>Member since: <%= @client.created_at %></p>
       <p>Your favorites: <%= @client.favorites %></p>
 
-      <%= link_to "Edit", edit_client_path %>
+      <%= link_to "Edit", edit_client_path, method: :get %>
+      <%= link_to "Logout", logout_path, method: :delete %>
     </div>
   </div>
 </div>
