@@ -40,4 +40,12 @@ Rails.application.routes.draw do
 
   delete "/performers/:id", to: "performers#destroy"
 
+  ### CLIENT SESSIONS ###
+
+  get "/sessions/new", to: "sessions#new", as: 'login'
+
+  post "/sessions", to: "sessions#create", as: 'login_user'
+
+  delete "/sessions", to: "sessions#destroy", as: "logout"
+
 end
