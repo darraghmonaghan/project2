@@ -21,8 +21,8 @@ def index
 	end
 
 	def edit
-		@performer = Performer.friendly.find(params[:id])
-    		if @performer.id == current_user.id
+		@performer = Performer.find(params[:id])
+    		if @performer.id == current_performer.id
         		render :edit
     		else
         		redirect_to root_path
@@ -42,8 +42,9 @@ def index
 	end
 
 	private
+
 	def performer_params
-		params.require(:performer).permit(:performer_name, :email, :password, :city, :category_id, :performer_subcategory, :hourly_rate, :description)
+		params.require(:performer).permit(:performer_name, :email, :password, :city, :category_id, :performer_subcategory, :hourly_rate, :description, :avatar)
 	end
 
 

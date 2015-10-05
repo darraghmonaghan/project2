@@ -38,11 +38,11 @@ Rails.application.routes.draw do
 
   post "/performers", to: "performers#create"
 
-  get "/performers/:id", to: "performers#show", as: 'performer_path'
+  get "/performers/:id", to: "performers#show", as: 'performer'
 
   get "/performers/:id/edit", to: "performers#edit", as: "edit_performer"
 
-  put "/performers/:id", to: "performers#udpate"
+  patch "/performers/:id", to: "performers#update"
 
   delete "/performers/:id", to: "performers#destroy"
 
