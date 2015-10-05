@@ -35,11 +35,15 @@ def show
 
   def update
     @client = Client.find(params[:id])
-  if @client.update(client_params)
-    redirect_to("/clients/#{@client.id}" )
-  else 
-    render :edit
-    end
+    puts "Client is: " + client_params.inspect
+    if @client.update(client_params)
+      redirect_to client_path(@client)
+    else 
+      render :edit
+      end
+  end
+
+  def destroy
   end
 
   def client_params
@@ -49,5 +53,3 @@ end
   
 
 
-  def destroy
-  end

@@ -1,7 +1,7 @@
 
 <h1>Edit Client</h1>
 
-<%= form_for (@client) do |f| %>
+<%= form_for @client, url: update_client_path do |f| %>
 
   <%= f.text_field :firstname %>
   <%= f.text_field :lastname %>

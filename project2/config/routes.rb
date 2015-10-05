@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   get "/clients/:id/edit", to: "clients#edit", as: "edit_client"
 
-  put "/clients/:id", to: "clients#udpate"
+  patch "/clients/:id", to: "clients#update", as: "update_client"
 
   delete "/clients/:id", to: "clients#destroy"
 
