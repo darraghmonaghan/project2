@@ -1,7 +1,9 @@
 class PerformersController < ApplicationController
 
 def index
-		@performer = Performer.all
+		@performers = Performer.all
+		# @performer = Performer.find_by_id(params[:id])
+		# @category = Category.find_by_id(@performer.category)
 	end
 
 	def new
@@ -9,12 +11,13 @@ def index
 	end
 
 	def create
-		performer_params = params.require(:performer).permit(:city, :firstname, :lastname, :group, :category_id, :rate, :performer_subcategory, :description, :instagram, :youtube)
 		@performer = Performer.create(performer_params)
+		redirect_to "/performers/#{@performer.id}"
 	end
 
 	def show
-		@performer = Performer.find(params[:id])
+		@performer = Performer.find_by_id(params[:id])
+		@category = Category.find_by_id(@performer.category)
 	end
 
 	def edit
@@ -27,7 +30,6 @@ def index
   	end
 
 	def update
-		performer_params = params.require(:performer).permit(:city, :firstname, :lastname, :group, :category_id, :rate, :performer_subcategory, :description, :instagram, :youtube)
     	@performer = Performer.find(params[:id])    
       		if @performer.update(performer_params)
          		redirect_to performer_path(@performer)
@@ -36,8 +38,12 @@ def index
       		end
   	end
 
-
 	def destroy
+	end
+
+	private
+	def performer_params
+		params.require(:performer).permit(:performer_name, :email, :password, :city, :category_id, :performer_subcategory, :hourly_rate, :description)
 	end
 
 

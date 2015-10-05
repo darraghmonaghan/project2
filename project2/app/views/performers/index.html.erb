@@ -1,0 +1,20 @@
+<h1>All Performers</h1>
+
+<% @performers.each do |performer| %>
+
+	<div>
+		<h2> <%= performer.performer_name %></h2>
+
+		<p>
+		City: <%= performer.city %>
+		<br>
+		Category: <%= performer.category_id %>
+		<br>
+		Subcategory: <%= performer.performer_subcategory %>
+		<br>
+		Price: <%= performer.hourly_rate %>
+		<br>
+		Description: <%= performer.description %></p>
+	</div>
+
+<% end %>
