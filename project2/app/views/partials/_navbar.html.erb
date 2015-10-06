@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <%= link_to "Project 2", "/", :"data-no-turbolink" => true, class: "navbar-brand" %>  
+      <!-- <a class="navbar-brand" href="/"></a> -->
+
+
+    </div>
+    <!-- @user.present? -->
+    <% if current_client %>
+
+      <%= button_to "Logout", logout_path, method: "delete", class: "btn btn-default navbar-right navbar-btn" %>
+      <%= button_to "Profile", client_path, method: "get", class: "btn btn-default navbar-right navbar-btn" %>
+
+    <% else %>
+     <span> <%= button_to "Login", "/sessions/new", method: "get", class: "red btn btn-default navbar-right navbar-btn" %></span> 
+
+      <span><%= button_to "Sign Up", "/clients/new", method: "get", class: "btn btn-default navbar-right navbar-btn" %></span>
+    <% end %>
+  </div><!-- /.container-fluid -->
+</nav>
