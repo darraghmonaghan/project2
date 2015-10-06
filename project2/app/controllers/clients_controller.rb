@@ -28,7 +28,7 @@ def show
   def edit
     @client = Client.find(params[:id])
     render :edit
-    end
+  end
 
   def update
       client_id = params[:id]
@@ -55,4 +55,3 @@ private
   
 
 
- 

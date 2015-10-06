@@ -32,6 +32,28 @@
 		<%= f.file_field :avatar, class: "form-control title_input_field2" %>
 	</div>
 	<div>
+		<%= f.file_field :image1, class: "form-control title_input_field2" %>
+	</div>
+	<div>
+		<%= f.file_field :image2, class: "form-control title_input_field2" %>
+	</div>
+	<div>
+		<%= f.file_field :image3, class: "form-control title_input_field2" %>
+	</div>
+
+	<div>
+		<%= f.text_field :video1, placeholder: "Enter a URL link from YouTube" %>
+	</div>
+
+	<div>
+		<%= f.text_field :video2, placeholder: "Enter a URL link from YouTube" %>
+	</div>
+
+	<div>
+		<%= f.text_field :video3, placeholder: "Enter a URL link from YouTube" %>
+	</div>
+
+	<div>
 		<%= f.submit "Sign Up" %>
 	</div>
 <% end %>

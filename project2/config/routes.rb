@@ -24,7 +24,6 @@ Rails.application.routes.draw do
 
   get "/clients/:id/edit", to: "clients#edit", as: "edit_client"
 
-
   get "/clients/:id", to: "clients#show", as: "client_path"
 
 ## UPDATE ROUTE 
