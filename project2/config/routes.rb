@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
 
-root to: "client#index"
+  get '/performer_sessions/new', to: "performer_sessions#new", as: "performer_login"
 
+  post '/performer_sessions', to: "performer_sessions#create"
+
+  delete '/performer_sessions', to: "performer_sessions#destroy"
+
+  # Categories
+  get 'categories/index'
+
+  get 'categories/show'
+
+  root to: "clients#index"
 
   ### CLIENTS ###
+
 
   get "/clients", to: "clients#index", as: "home"
 
@@ -11,11 +22,14 @@ root to: "client#index"
 
   post "/clients", to: "clients#create"
 
-  get "/clients/:id", to: "clients#show", as: 'client_path'
-
   get "/clients/:id/edit", to: "clients#edit", as: "edit_client"
 
-  put "/clients/:id", to: "clients#udpate"
+  get "/clients/:id", to: "clients#show", as: "client_path"
+
+## UPDATE ROUTE 
+  # put "/clients/:id", to: "clients#update"
+
+  patch "/clients/:id", to: "clients#update", as:"update_client"
 
   delete "/clients/:id", to: "clients#destroy"
 
@@ -28,12 +42,20 @@ root to: "client#index"
 
   post "/performers", to: "performers#create"
 
-  get "/performers/:id", to: "performers#show", as: 'performer_path'
+  get "/performers/:id", to: "performers#show", as: 'performer'
 
   get "/performers/:id/edit", to: "performers#edit", as: "edit_performer"
 
-  put "/performers/:id", to: "performers#udpate"
+  patch "/performers/:id", to: "performers#update"
 
   delete "/performers/:id", to: "performers#destroy"
+
+  ### CLIENT SESSIONS ###
+
+  get "/sessions/new", to: "sessions#new", as: 'login'
+
+  post "/sessions", to: "sessions#create", as: 'login_user'
+
+  delete "/sessions", to: "sessions#destroy", as: "logout"
 
 end

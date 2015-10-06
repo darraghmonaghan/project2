@@ -1,45 +1,62 @@
 class ClientsController < ApplicationController
 
 def index
-		@client = Client.all
-	end
+    @clients = Client.all
+    render :index
+  end
 
-	def new
-		@client = Client.new
-	end
+def show
+  id = params[:id]
+  @client = Client.find(params[:id])
+  render :show
+  end
 
-	def create
-		client_params = params.require(:client).permit(:firstname, :lastname, :email, :password)
-		@client = Client.create(client_params)
-	end
+  def new
+    @client = Client.new
+    render :new
+  end
 
-	def show
-		@client = Client.find(params[:id])
-	end
-
-	def edit
-		@client = Client.friendly.find(params[:id])
-    		if @client.id == current_user.id
-        		render :edit
-    		else
-        		redirect_to root_path
-    		end
-  	end
-
-	def update
-		client_params = params.require(:client).permit(:firstname, :lastname, :email, :password)
-    	@client = Client.find(params[:id])    
-      		if @client.update(client_params)
-         		redirect_to client_path(@client)
-      		else
-        		render :edit
-      		end
-  	end
+  def create
+    client_params = params.require(:client).permit(:firstname, :lastname, :email, :password)
+    @client = Client.create(client_params)
+    if @client.save
+      flash[:success] = "Welcome!"
+      redirect_to("/clients/#{@client.id}")
+    else
+      flash[:danger] = "It failed!"
+      render 'new'
+    end
+  end
 
 
-	def destroy
-	end
 
+  def edit
+    @client = Client.find(params[:id])
+    render :edit
+  end
 
-	
+  def update
+      client_id = params[:id]
+      client = Client.find(client_id)
+      # get updated data
+      updated_attributes = params.require(:client).permit(:firstname, :lastname)
+      # update the client
+      client.update_attributes(updated_attributes)
+      client.save(validate: false)
+      #redirect to show
+      redirect_to "/clients/#{client.id}"  # <-- go to show
+    end
+
+ def destroy
+  end
+
+  
 end
+private
+
+  def client_params
+    params.require(:client).permit(:firstname, :lastname, :email, :password)
+  end
+  
+
+

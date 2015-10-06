@@ -1,7 +1,9 @@
 class PerformersController < ApplicationController
 
 def index
-		@performer = Performer.all
+		@performers = Performer.all
+		# @performer = Performer.find_by_id(params[:id])
+		# @category = Category.find_by_id(@performer.category)
 	end
 
 	def new
@@ -9,17 +11,27 @@ def index
 	end
 
 	def create
-		performer_params = params.require(:performer).permit(:city, :firstname, :lastname, :group, :category_id, :rate, :performer_subcategory, :description, :instagram, :youtube)
 		@performer = Performer.create(performer_params)
+    if @performer.save
+      flash[:success] = "Welcome!"
+      redirect_to("/performers/#{@performers.id}")
+    else
+      flash[:danger] = "It failed!"
+      render 'new'
+    end
+		# redirect_to "/performers/#{@performer.id}"
 	end
 
 	def show
-		@performer = Performer.find(params[:id])
+		@performer = Performer.find_by_id(params[:id])
+		@category = Category.find_by_id(@performer.category)
+		@video1 = @performer.video1
+
 	end
 
 	def edit
-		@performer = Performer.friendly.find(params[:id])
-    		if @performer.id == current_user.id
+		@performer = Performer.find(params[:id])
+    		if @performer.id == current_performer.id
         		render :edit
     		else
         		redirect_to root_path
@@ -27,7 +39,6 @@ def index
   	end
 
 	def update
-		performer_params = params.require(:performer).permit(:city, :firstname, :lastname, :group, :category_id, :rate, :performer_subcategory, :description, :instagram, :youtube)
     	@performer = Performer.find(params[:id])    
       		if @performer.update(performer_params)
          		redirect_to performer_path(@performer)
@@ -36,8 +47,13 @@ def index
       		end
   	end
 
-
 	def destroy
+	end
+
+	private
+
+	def performer_params
+		params.require(:performer).permit(:performer_name, :email, :password, :city, :category_id, :performer_subcategory, :hourly_rate, :description, :avatar, :image1, :image2, :image3, :video1, :video2, :video3)
 	end
 
 
