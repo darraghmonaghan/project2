@@ -1,7 +1,11 @@
 <h1>Edit Client</h1>
-<%= form_for @client, url: update_client_path, method: :patch do |f| %>
- <p>First Name: <%= f.text_field :firstname %></p>
- <p>Last Name: <%= f.text_field :lastname %></p>
- <%= f.submit "edit" %>
-<% end %>
+
+  <div class="form-group">
+    <%= form_for @client, url: update_client_path, method: :patch do |f| %>
+    <p><%= f.text_field :firstname, placeholder: 'First Name' %></p>
+    <p><%= f.text_field :lastname, placeholder: 'Last Name' %></p>
+  </div>
+  <%= f.submit "edit" %>
+  <% end %>
+
 
