@@ -3,8 +3,9 @@ class Client < ActiveRecord::Base
 	has_secure_password
 	has_many :reviews
 
-	validates :email, :password, :firstname, :lastname, presence: true
-	validates :email, uniqueness: true 
+	validates :email, :firstname, :lastname, presence: true
+	validates :email, uniqueness: true
+	validates :password, presence: true, length: { minimum: 6 } 
 
 
 	def self.confirm(params)

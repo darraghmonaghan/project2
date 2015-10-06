@@ -26,7 +26,7 @@
 		<%= f.select :hourly_rate, [['$1-25 per hour', '$1-25 per hour'], ['$26-50 per hour', '$26-50 per hour'], ['$51-75 per hour', '$51-75 per hour'], ['$76-100 per hour', '$76-100 per hour'], ['$101-150 per hour', '$101-150 per hour']], required: true %>
 	</div>
 	<div>
-		<%= f.text_area :description, placeholder: "Describe your act for us! Max 500 characters.", required: true, cols: 50, rows: 6 %>
+		<%= f.text_area :description, placeholder: "Describe your act for us! Min. 30, max. 500 characters.", required: true, cols: 50, rows: 6 %>
 	</div>
 	<div>
 		<%= f.file_field :avatar, class: "form-control title_input_field2" %>
