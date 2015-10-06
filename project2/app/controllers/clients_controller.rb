@@ -18,9 +18,14 @@ def show
 
   def create
     client_params = params.require(:client).permit(:firstname, :lastname, :email, :password)
-    
     @client = Client.create(client_params)
-    redirect_to("/clients/#{@client.id}" )
+    if @client.save
+      flash[:success] = "Welcome!"
+      redirect_to("/clients/#{@client.id}")
+    else
+      flash[:danger] = "It failed!"
+      render 'new'
+    end
   end
 
 

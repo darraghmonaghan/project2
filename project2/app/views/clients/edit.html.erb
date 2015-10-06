@@ -2,8 +2,8 @@
 
   <div class="form-group">
     <%= form_for @client, url: update_client_path, method: :patch do |f| %>
-    <p><%= f.text_field :firstname, placeholder: 'First Name' %></p>
-    <p><%= f.text_field :lastname, placeholder: 'Last Name' %></p>
+    <p><%= f.text_field :firstname, placeholder: 'First Name', required: true %></p>
+    <p><%= f.text_field :lastname, placeholder: 'Last Name', required: true %></p>
   </div>
   <%= f.submit "edit" %>
   <% end %>

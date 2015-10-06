@@ -4,14 +4,15 @@
       <!-- sidebar content -->
     </div>
       <div id="content" class="col-xs-9">
+        
         <%= form_for @client do |f| %> 
           <p>
-            <%= f.text_field :email, placeholder: 'Email' %></br>
-            <%= f.text_field :firstname, placeholder: 'First Name' %></br>
-            <%= f.text_field :lastname, placeholder: 'Last Name' %>
+            <%= f.email_field :email, placeholder: 'Email', required: true %></br>
+            <%= f.text_field :firstname, placeholder: 'First Name', required: true %></br>
+            <%= f.text_field :lastname, placeholder: 'Last Name', required: true %>
             
               <br />
-            <%= f.password_field :password, placeholder: 'Password' %></br>
+            <%= f.password_field :password, placeholder: 'Password', required: true %></br>
    
             <%= f.submit "Signup!" %>
           </p>

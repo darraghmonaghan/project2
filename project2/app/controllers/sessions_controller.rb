@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       login(@client)
       redirect_to "/clients/#{@client.id}"
     else
+      flash[:danger] = "It failed!"
       redirect_to "/sessions/new"
     end
   end
@@ -19,3 +20,4 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 end
+
