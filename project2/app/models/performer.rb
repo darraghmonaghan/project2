@@ -6,9 +6,8 @@ class Performer < ActiveRecord::Base
 	validates :performer_name, :email, :password_digest, :city, :hourly_rate, :description, presence: true
 	# performers must have unique names and email addresses
 	validates_uniqueness_of :performer_name, :email
-	validates :password, length: {minimum: 1}
-	validates :description, length: {maximum: 500}
-	# validates :email, :instagram, uniqueness: true 
+	validates :password, length: { minimum: 6 }
+	validates :description, length: { minimum: 30, maximum: 500 }
 
 	belongs_to :category
 

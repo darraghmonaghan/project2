@@ -7,9 +7,7 @@ Rails.application.routes.draw do
   delete '/performer_sessions', to: "performer_sessions#destroy"
 
   # Categories
-  get 'categories/index'
-
-  get 'categories/show'
+  resources :categories
 
   root to: "clients#index"
 
