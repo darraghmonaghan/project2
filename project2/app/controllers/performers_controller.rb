@@ -12,7 +12,14 @@ def index
 
 	def create
 		@performer = Performer.create(performer_params)
-		redirect_to "/performers/#{@performer.id}"
+    if @performer.save
+      flash[:success] = "Welcome!"
+      redirect_to("/performers/#{@performers.id}")
+    else
+      flash[:danger] = "It failed!"
+      render 'new'
+    end
+		# redirect_to "/performers/#{@performer.id}"
 	end
 
 	def show
