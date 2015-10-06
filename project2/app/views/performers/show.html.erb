@@ -14,7 +14,7 @@
 
 
 	<div>
-		<%= image_tag @performer.avatar(:thumb) %>
+		<%= image_tag @performer.avatar.url(:thumb), :class => "img-circle" %>
 	</div>
 	<div>
 		<h1><%= @performer.performer_name %></h1>

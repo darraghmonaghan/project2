@@ -1,16 +1,60 @@
+<div class="profile container">
+  <div class="row">
+    <div class="col-md-8 col-xs-10">
+      <div class="well panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4 text-center">
+              <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" alt="" class="center-block img-circle img-thumbnail img-responsive">
+            </div>
+            <h1>Welcome, <%= @client.firstname %></h1>
+            <p>
+            <p><strong></p>About:</strong> Client information,Proin vitae convallis libero. Pellentesque vel metus vel orci feugiat fringilla nec sed tellus. Nam id porttitor turpis, eget auctor magna. Aenean consectetur blandit tortor, vel suscipit nisl. 
+          </p>
 
-<div id="main-container" class="container">
- <div class="row">
-    <div id="sidebar" class="col-xs-3">
-      <!-- sidebar content -->
-    </div>
-    <div id="content" class="col-xs-9">
-      <h1>Welcome, <%= @client.firstname %></h1>
-      <p>Member since: <%= @client.created_at %></p>
-      <p>Your favorites: <%= @client.favorites %></p>
+            <p><strong>Member since: </strong><%= @client.created_at %></p>
+            <p><strong></p>Nam id porttitor turpis</strong>
+            <span class="label label-info tags">here</span>
+          </p>
+        </div>
+        <!-- col -->
+        <div class="clearfix"></div>
+          <div class="col-xs-12 col-sm-4">
+            
+            
+            <p><small> <%= @client.favorites %></small></p>
+          </div>
+        <!-- col -->
+            <div class-"col-xs-12 col-sm-4">
+              <h3><strong>43</strong></h3>
+              <p><small>Favorites</small></p>
+            </div>
+            <h3><strong>Performers you've contacted: </strong></h>
+            <!--/col-->
+            <div class="col-xs-12 col-sm-4">
+            <button type="button" class="btn btn-warning"><%= link_to "Logout", logout_path, method: :delete %></button>
+            <button type="button" class="btn btn-warning"><%= link_to "Edit", edit_client_path, method: :get %></button>
 
-      <%= link_to "Edit", edit_client_path, method: :get %>
-      <%= link_to "Logout", logout_path, method: :delete %>
+            </div>
+            <!--/col-->
+          </div>
+          <!--/row-->
+        </div>
+        <!--/panel-body-->
+      </div>
+      <!--/panel-->
     </div>
+    <!--/col--> 
   </div>
+  <!--/row--> 
 </div>
+<!--/container-->
+
+
+
+
+
+
+
+
+
