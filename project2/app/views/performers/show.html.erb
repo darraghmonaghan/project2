@@ -21,6 +21,41 @@
 	<strong>Description:</strong> <%= @performer.description %>
 </div>
 
+
+
+<div>
+	<strong>Profile Picture:</strong> <%= image_tag @performer.avatar(:thumb) %>
+</div>
+
+<div>
+	<strong>Image 1:</strong> <%= image_tag @performer.image1(:medium) %>
+</div>
+
+<div>
+	<strong>Image 2:</strong> <%= image_tag @performer.image2(:medium) %>
+</div>
+
+<div>
+	<strong>Image 3:</strong> <%= image_tag @performer.image3(:medium) %>
+</div>
+
+<div>
+	<%= embed(@performer.video1) %>
+</div>
+
+<div>
+	<%= embed(@performer.video2) %>
+</div>
+
+<div>
+	<%= embed(@performer.video3) %>
+</div>
+
+
+
+
+
+
 <%= link_to "Log Out", "/performer_sessions", method: :delete %><br>
 
 <%= link_to "Edit Profile", edit_performer_path, method: :get %>
