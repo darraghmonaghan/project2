@@ -18,6 +18,8 @@ def index
 	def show
 		@performer = Performer.find_by_id(params[:id])
 		@category = Category.find_by_id(@performer.category)
+		@video1 = @performer.video1
+
 	end
 
 	def edit
@@ -44,7 +46,7 @@ def index
 	private
 
 	def performer_params
-		params.require(:performer).permit(:performer_name, :email, :password, :city, :category_id, :performer_subcategory, :hourly_rate, :description, :avatar)
+		params.require(:performer).permit(:performer_name, :email, :password, :city, :category_id, :performer_subcategory, :hourly_rate, :description, :avatar, :image1, :image2, :image3, :video1, :video2, :video3)
 	end
 
 
