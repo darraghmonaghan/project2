@@ -2,8 +2,6 @@ class PerformersController < ApplicationController
 
 def index
 		@performers = Performer.all
-		# @performer = Performer.find_by_id(params[:id])
-		# @category = Category.find_by_id(@performer.category)
 	end
 
 	def new
@@ -12,14 +10,13 @@ def index
 
 	def create
 		@performer = Performer.create(performer_params)
-    if @performer.save
-      flash[:success] = "Welcome!"
-      redirect_to("/performers/#{@performers.id}")
-    else
-      flash[:danger] = "It failed!"
-      render 'new'
-    end
-		# redirect_to "/performers/#{@performer.id}"
+	    if @performer.save
+	      flash[:success] = "Welcome!"
+	      redirect_to("/performers/#{@performers.id}")
+	    else
+	      flash[:danger] = "It failed!"
+	      render 'new'
+	    end
 	end
 
 	def show

@@ -10,7 +10,7 @@ class PerformerSessionsController < ApplicationController
   		login(@performer)
       redirect_to performer_path(@performer)
   	else
-  		redirect_to performer_sessions_new_path
+  		redirect_to performer_login_path
   	end
   end
 

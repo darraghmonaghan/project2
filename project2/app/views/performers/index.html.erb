@@ -1,20 +1,29 @@
-<h1>All Performers</h1>
-
-<% @performers.each do |performer| %>
-
+<div class="container">
+	<h1>View All Performers</h1>
 	<div>
-		<h2> <%= performer.performer_name %></h2>
-
-		<p>
-		City: <%= performer.city %>
-		<br>
-		Category: <%= performer.category_id %>
-		<br>
-		Subcategory: <%= performer.performer_subcategory %>
-		<br>
-		Price: <%= performer.hourly_rate %>
-		<br>
-		Description: <%= performer.description %></p>
+		<select name="category_id" id="category_id">
+			 <option value="1">Musical Acts</option>
+			 <option value="2">Comedy Acts</option>
+			 <option value="3">Circus Acts</option>
+		</select>
 	</div>
 
-<% end %>
+	<% @performers.each do |performer| %>
+
+		<div>
+			<h2> <%= performer.performer_name %></h2>
+
+			<p>
+			City: <%= performer.city %>
+			<br>
+			Category: <%= performer.category_id %>
+			<br>
+			Subcategory: <%= performer.performer_subcategory %>
+			<br>
+			Price: <%= performer.hourly_rate %>
+			<br>
+			Description: <%= performer.description %></p>
+		</div>
+
+	<% end %>
+</div>

@@ -2,7 +2,7 @@
   <div class="container">
   <h1>Find a performer near you</h1>
   <p>The best local performers.</p>
-  <button type="button" class="btn btn-default btn-lg btn-block">Browse</button>
+  <button type="button" class="btn btn-default btn-lg btn-block"><%= link_to "Search All Perfomers", performers_path %></button>
   </div>
 </div>
 
@@ -13,7 +13,7 @@
     <div><img class="perf" src="http://i.cdn.talentegg.ca/incubator/wp-content/uploads/bourke3.jpg">
     </div>
     <p>Make it memorable</p>
-    <a href="#" class="btn btn-sm btn-info">Search all performers.</a>   
+    <button type="button" class="btn btn-sm btn-info"><%= link_to "Musical Acts", "/categories/1" %></button>   
   </div>
 <!-- row of columns -->
 <div class="col-md-4">
@@ -22,7 +22,7 @@
     </div>
       <p>Browse magicians and clowns near you.</p>
       
-      <a href="#" class="btn btn-sm btn-info">Search all performers.</a>
+      <button type="button" class="btn btn-sm btn-info"><%= link_to "Comedy Acts", "/categories/2" %></button> 
       </div>
     <!-- row of columns -->
 <div class="col-md-4">
@@ -30,7 +30,7 @@
     <div><img class="perf" src="http://nickshell1983.files.wordpress.com/2011/01/stand-up-comedy-mic.jpg">
     </div>
       <p>The funniest comics are at your event.</p>
-      <a href="#" class="btn btn-sm btn-info">Search all performers.</a>
+      <button type="button" class="btn btn-sm btn-info"><%= link_to "Circus Acts", "/categories/3" %></button> 
     </div>
 </div>
 <hr>
